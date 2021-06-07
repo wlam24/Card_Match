@@ -54,7 +54,9 @@ const levels = {
 }
 
 function reset() {
-  cardsFlipped = 0
+  moves = 0;
+  matches = 0;
+  cardsFlipped = 0;
   document.querySelector(".moves").textContent = " " + 0;
   document.querySelector(".numberOfMatches").textContent = " " + 0;
 }
