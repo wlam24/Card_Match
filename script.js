@@ -16,10 +16,8 @@ function flip(event) {
   event.target.firstElementChild.style.background = "rgb(176, 174, 174)";
   event.target.style.backgroundColor = "none";
   cardsFlipped++;
-  console.log(cardsFlipped)
   if (cardsFlipped === 2) {
     const results = document.querySelectorAll("[data-status='flipped']");
-    cardsFlipped = 0;
     if (results) {
       const [image1, image2] = results;
       if (image1.src === image2.src) {
@@ -29,6 +27,7 @@ function flip(event) {
         image2.style.backgroundColor = "black";
         matches = Number(matches) + 1;
         document.querySelector(".numberOfMatches").textContent = " " + matches;
+        cardsFlipped = 0;
       } else {
         setTimeout(() => {
           image1.setAttribute("data-status", "");
@@ -37,7 +36,8 @@ function flip(event) {
           image2.parentElement.style.background = "rgb(87, 126, 160)";
           image1.style.display = "none";
           image2.style.display = "none";
-        }, 300);
+          cardsFlipped = 0;
+        }, 700);
       }
       moves = Number(moves) + 1;
       document.querySelector(".moves").textContent = " " + moves;
